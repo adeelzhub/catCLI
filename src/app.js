@@ -1,30 +1,41 @@
-// const command = process.argv[2];
-const {listItems, addItem, updateItem, deleteItem} = require("./utils");
+const command = process.argv[2];
+const {listItems, addItem, updateItem, deleteItem,commandList} = require("./utils");
 
-// const catStore = () =>{
-//     if(command === "list"){
-//         // list all items
-//     }else if(command === "add"){
-//         // add item
-//     }else if (command === "update"){
+const catStore = () =>{
+    if(command === "list"){
+            listItems();
+    }else if(command === "add"){
+        const name = process.argv[3];
+        const adoptionCost = process.argv[4];
+        const numbers = process.argv[5];
+        addItem(name, adoptionCost, numbers )
+
+
+        //     }else if (command === "update"){
 //     // update item
-//     }else if (command === "delete"){
+    }else if (command === "delete"){
+        const id = process.argv[3];
+        deleteItem(id);
 
-//     }else{
-//         console.log("Invalid Command")
-//     }
-// }
+
+    }else{
+        console.log("Invalid Command\n")
+        commandList()
+    }
+}
 
 
 // listItems();
 
-addItem({
-    name: "Mano", 
-    url:"/images/siamese.png", 
-    adoptionCost: 600, 
-    numbers: 1, 
-    id:22})
+// addItem({
+//     name: "Mano", 
+//     url:"/images/siamese.png", 
+//     adoptionCost: 600, 
+//     numbers: 1, 
+//     id:22})
 
 
 
-// deleteItem()
+// deleteItem(2);
+
+catStore();

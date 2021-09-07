@@ -12,8 +12,8 @@ const readDB = () =>{
 }
 
 const writeDB =(update) =>{
-    let strigyList = JSON.stringify(update)
-    fs.writeFileSync("./storage.json",strigyList);
+    let stringyList = JSON.stringify(update)
+    fs.writeFileSync("./storage.json",stringyList);
 }
 
 
@@ -21,15 +21,20 @@ const writeDB =(update) =>{
 
 exports.listItems = () =>{
     return (parsedCatList.map(cat => console.log(`\nCat Id: ${cat.id} \n${cat.numbers} ${cat.name} up for adoption, adoption cost : £${cat.adoptionCost}`)));
-                // console.log(`Number of Cat Breeds available for adoption: ${parsedCatList.length} `)
+                // console.log(`Number of Cat Breeds available for adoption: ${parsedCatList.length} `);
    
 }
-exports.addItem = (item)=>{
+exports.addItem = (name,adoptionCost,numbers)=>{
+    maxId = 0;
+    parsedCatList.filter(cat=>{(cat.id>maxId)? maxId = cat.id: maxId})
+    let newItem = {
+        name : name,
+        adoptionCost: adoptionCost,
+        numbers:numbers,
+    }
+    newItem.id = maxId+1;
     let itemList = readDB();
-    itemList.push(item);
-    // console.log(updatedList);
-    console.log(itemList);
-//    let updatedList = JSON.stringify(itemList);
+    itemList.push(newItem);
     writeDB(itemList);
 
 }
@@ -37,8 +42,13 @@ exports.addItem = (item)=>{
 
 exports.deleteItem = (id)=>{
     let itemList = readDB();
-    let updatedList = itemList.filter(cat => cat.id !== id)
+    let updatedList = []
+    itemList.filter(cat => cat.id !== id && updatedList.push(cat))
 
    writeDB(updatedList)
 
+}
+exports.commandList = ()=>{
+    let commandsList = JSON.parse(fs.readFileSync("./commandslist.json"))
+    console.log(`List of commands\n ${commandsList}`);
 }
