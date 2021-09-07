@@ -1,0 +1,10 @@
+[
+    
+    {"name": "birman", "url":"/images/birman.png", "adoptionCost": 500, "numbers": 2, "id":1},
+    {"name": "himalayan", "url":"/images/himalayan.png", "adoptionCost": 800,"numbers": 1, "id":2},
+    {"name": "manx", "url":"/images/manx.png", "adoptionCost": 600, "numbers": 1, "id":3},
+    {"name": "ragamuffin", "url":"/images/ragamuffin.png", "adoptionCost": 600, "numbers": 1, "id":4},
+    {"name": "Burmese", "url":"/images/Burmese.png", "adoptionCost": 500, "numbers": 1,"id":5},
+    {"name": "maine-coon", "url":"/images/maine-coon.png", "adoptionCost": 800, "numbers": 1, "id":6},
+    {"name": "norwegian-forest-cat", "url":"/images/norwegian-forest-cat.png", "adoptionCost": 600, "numbers": 1,"id":7}
+]
