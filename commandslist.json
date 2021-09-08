@@ -1,6 +1,7 @@
 [
     {"list" : "A full list of all cats available for adoption - No parameter required"},
     {"add": "Add a new breed to the adoption list - Parameters required : <breed name> <adoption cost> <numbers available> "},
+    {"adopted": "Lowers the number of cats available by one - Parameter required : <id>"},
     {"update": "Update number of cats - Parameter required: <id> <number to add>"},
     {"delete" : "Delete an item - Parameter required: <id>"}
 

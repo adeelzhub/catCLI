@@ -47,7 +47,6 @@ exports.addItem = (name,adoptionCost,numbers)=>{
 }
 exports.updateItem = (id,addNumbers) =>{
     stockList.filter(cat => cat.id === id ? cat.numbers = cat.numbers+addNumbers:cat.numbers);
-    // console.log(stockList)
     writeDB(stockList);
 
 
