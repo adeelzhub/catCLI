@@ -14,7 +14,7 @@ const catStore = () =>{
         //     }else if (command === "update"){
 //     // update item
     }else if (command === "delete"){
-        const id = process.argv[3];
+        const id = +process.argv[3];
         deleteItem(id);
 
 

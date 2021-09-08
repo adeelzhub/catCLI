@@ -41,9 +41,11 @@ exports.addItem = (name,adoptionCost,numbers)=>{
 
 
 exports.deleteItem = (id)=>{
+    // console.log(typeof(iD))
     let itemList = readDB();
     let updatedList = []
-    itemList.filter(cat => cat.id !== id && updatedList.push(cat))
+    itemList.filter(cat => cat.id !== id && updatedList.push(cat));
+    // itemList.filter(cat => console.log(typeof(cat.id)));
 
    writeDB(updatedList)
 
