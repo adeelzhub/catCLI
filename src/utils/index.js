@@ -25,6 +25,12 @@ exports.listItems = () =>{
                 // console.log(`Number of Cat Breeds available for adoption: ${parsedCatList.length} `);
    
 }
+
+exports.adopted = (id)=>{
+    stockList.map(cat => (cat.id === id && cat.numbers>0) ? cat.numbers--: (cat.id === id && cat.numbers === 0)&& console.log("Cats not available"));
+    writeDB(stockList);; 
+
+}
 exports.addItem = (name,adoptionCost,numbers)=>{
     maxId = 0;
     stockList.filter(cat=>{(cat.id>maxId)? maxId = cat.id: maxId})
@@ -40,6 +46,9 @@ exports.addItem = (name,adoptionCost,numbers)=>{
 
 }
 exports.updateItem = (id,addNumbers) =>{
+    stockList.filter(cat => cat.id === id ? cat.numbers = cat.numbers+addNumbers:cat.numbers);
+    // console.log(stockList)
+    writeDB(stockList);
 
 
 }
@@ -48,10 +57,12 @@ exports.deleteItem = (id)=>{
     let updatedList = []
     stockList.filter(cat => cat.id !== id && updatedList.push(cat));
 
-   writeDB(updatedList)
+   writeDB(updatedList);
 
 }
 exports.commandList = ()=>{
-    let commandsList = JSON.parse(fs.readFileSync("./commandslist.json"))
-    console.log(`List of commands\n ${commandsList}`);
+    let commandsList = JSON.parse(fs.readFileSync("./commandslist.json"));
+    // console.log(`List of commands\n ${commandsList}`);
+    // console.log(commandsList);
+    commandsList.map(command => console.log(command));
 }

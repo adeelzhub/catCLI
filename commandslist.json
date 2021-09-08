@@ -1,6 +1,8 @@
 [
-    {"list" : "A full list of all Stock's Items"},
-    {"add catbreed adoptionCost availableNumbers": "add a new breed to the stocks"}
+    {"list" : "A full list of all cats available for adoption - No parameter required"},
+    {"add": "Add a new breed to the adoption list - Parameters required : <breed name> <adoption cost> <numbers available> "},
+    {"update": "Update number of cats - Parameter required: <id> <number to add>"},
+    {"delete" : "Delete an item - Parameter required: <id>"}
 
 
 ]
