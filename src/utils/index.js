@@ -1,8 +1,6 @@
 const fs = require("fs");
 let parsedCatList = JSON.parse(fs.readFileSync("./storage.json"));
 
-
-
 const readDB = () =>{
     try{
         return parsedCatList;
@@ -10,6 +8,9 @@ const readDB = () =>{
         return "No Item in the stock";
     }
 }
+
+
+let stockList = readDB()
 
 const writeDB =(update) =>{
     let stringyList = JSON.stringify(update)
@@ -20,13 +21,13 @@ const writeDB =(update) =>{
 
 
 exports.listItems = () =>{
-    return (parsedCatList.map(cat => console.log(`\nCat Id: ${cat.id} \n${cat.numbers} ${cat.name} up for adoption, adoption cost : £${cat.adoptionCost}`)));
+    return (stockList.map(cat => console.log(`\nCat Id: ${cat.id} \n${cat.numbers} ${cat.name} up for adoption, adoption cost : £${cat.adoptionCost}`)));
                 // console.log(`Number of Cat Breeds available for adoption: ${parsedCatList.length} `);
    
 }
 exports.addItem = (name,adoptionCost,numbers)=>{
     maxId = 0;
-    parsedCatList.filter(cat=>{(cat.id>maxId)? maxId = cat.id: maxId})
+    stockList.filter(cat=>{(cat.id>maxId)? maxId = cat.id: maxId})
     let newItem = {
         name : name,
         adoptionCost: adoptionCost,
@@ -38,14 +39,14 @@ exports.addItem = (name,adoptionCost,numbers)=>{
     writeDB(itemList);
 
 }
+exports.updateItem = (id,addNumbers) =>{
 
+
+}
 
 exports.deleteItem = (id)=>{
-    // console.log(typeof(iD))
-    let itemList = readDB();
     let updatedList = []
-    itemList.filter(cat => cat.id !== id && updatedList.push(cat));
-    // itemList.filter(cat => console.log(typeof(cat.id)));
+    stockList.filter(cat => cat.id !== id && updatedList.push(cat));
 
    writeDB(updatedList)
 
