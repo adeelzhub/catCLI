@@ -62,7 +62,5 @@ exports.deleteItem = (id)=>{
 }
 exports.commandList = ()=>{
     let commandsList = JSON.parse(fs.readFileSync("./commandslist.json"));
-    // console.log(`List of commands\n ${commandsList}`);
-    // console.log(commandsList);
     commandsList.map(command => console.log(command));
 }

@@ -32,17 +32,5 @@ const catStore = () =>{
 }
 
 
-// listItems();
-
-// addItem({
-//     name: "Mano", 
-//     url:"/images/siamese.png", 
-//     adoptionCost: 600, 
-//     numbers: 1, 
-//     id:22})
-
-
-
-// deleteItem(2);
 
 catStore();
