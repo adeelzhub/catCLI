@@ -2,8 +2,10 @@ const command = process.argv[2];
 const {listItems, adopted, addItem, updateItem, deleteItem,commandList} = require("./utils");
 
 const catStore = () =>{
-    if(command === "list"){
-            listItems();
+    if(command === "commands"){
+        commandList()
+    }else if(command === "list"){
+        listItems();
     }else if(command === "adopted"){
         const id = +process.argv[3];
         adopted(id);
